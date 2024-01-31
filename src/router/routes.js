@@ -1,63 +1,46 @@
-import Layout from '@/layout/index.vue'
-import RouteView from '@/components/Tool/RouteView.vue'
-import { t } from '@/hooks/web/usei18n'
-const layoutMap = [
-  {
-    path: 'home',
-    name: 'Home',
-    component: () => import('@/view/home/index.vue'),
-    meta: { title: t('router.home'), icon: 'HomeFilled' }
+const layoutMap = [{
+    path: '/anime-01',
+    name: 'anime-01',
+    component: () => import('@/view/anime-01/index.vue'),
+    meta: {
+      title: 'anime-01',
+      icon: 'HomeFilled'
+    }
   },
   {
-    path: 'system-manage',
-    name: 'SystemManage',
-    component: RouteView,
-    meta: { title: t('router.SystemManage.SystemManage'), icon: 'Setting' },
-    redirect: { name: 'UserManage' },
-    children: [
-      {
-        path: 'user-manage',
-        name: 'UserManage',
-        meta: { title: t('router.SystemManage.UserManage'), icon: 'User' },
-        component: () => import('@/view/system-manage/user-manage/index.vue')
-      },
-      {
-        path: 'role-manage',
-        name: 'RoleManage',
-        meta: { title: t('router.SystemManage.RoleManage'), icon: 'Stamp' },
-        component: () => import('@/view/system-manage/role-manage/index.vue')
-      },
-      {
-        path: 'menu-manage',
-        name: 'MenuManage',
-        meta: { title: t('router.SystemManage.MenuManage'), icon: 'Menu' },
-        component: () => import('@/view/system-manage/menu-manage/index.vue')
-      },
-      {
-        path: 'log-operation',
-        name: 'LogOperation',
-        meta: { title: t('router.SystemManage.LogOperation'), icon: 'Document' },
-        component: () => import('@/view/system-manage/log-operation/index.vue')
-      }
-    ]
+    path: '/anime-02',
+    name: 'anime-02',
+    component: () => import('@/view/anime-02/index.vue'),
+    meta: {
+      title: 'anime-02',
+      icon: 'HomeFilled'
+    }
+  },
+  {
+    path: '/anime-03',
+    name: 'anime-03',
+    component: () => import('@/view/anime-03/index.vue'),
+    meta: {
+      title: 'anime-03',
+      icon: 'HomeFilled'
+    }
+  },
+  {
+    path: '/anime-04',
+    name: 'anime-04',
+    component: () => import('@/view/anime-04/index.vue'),
+    meta: {
+      title: 'anime-04',
+      icon: 'HomeFilled'
+    }
   }
 ]
 
 const routes = [
-  {
-    path: '/',
-    name: 'Layout',
-    meta: { title: t('router.home') },
-    redirect: { name: 'Home' },
-    component: Layout,
-    children: [...layoutMap]
-  },
-  {
-    path: '/login/:type?',
-    name: 'Login',
-    meta: { title: t('router.login') },
-    component: () => import('@/view/login/Login.vue')
-  }
+  ...layoutMap
 ]
 
-export { routes, layoutMap }
+export {
+  routes,
+  layoutMap
+}
